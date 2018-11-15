@@ -84,12 +84,24 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'HelloWorld',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
+  data () => ({
+    cryptos: [],
+    errors: []
+  }),
+
+  created () {
+    axios.get('https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,IOT&tsyms=USD')
+      .then(response => {
+        this.cryptos = response.data
+        console.log(response)
+      })
+      .catch(e => {
+        this.errors.push(e)
+      })
   }
 }
 </script>
