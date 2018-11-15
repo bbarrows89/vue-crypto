@@ -1,17 +1,18 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld/>
+    <img src="./assets/bryancryptologo.png">
+    <h1>Current Prices:</h1>
+    <crypto/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import Crypto from './components/Crypto'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Crypto
   }
 }
 </script>
@@ -24,5 +25,10 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+img {
+  width: 325px;
+  height: 325px;
 }
 </style>

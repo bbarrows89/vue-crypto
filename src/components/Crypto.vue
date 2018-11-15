@@ -1,8 +1,8 @@
 <template>
-  <div class="hello">
-    <div id="crypto-container">
-      <span class="left">{{ key }}</span>
-      <span class="right">${{ value }}</span>
+  <div>
+    <div id="crypto-container" v-for="(value, key) in cryptos">
+      <span class="left">{{ key }} - </span>
+      <span class="right">${{ value.USD }}</span>
     </div>
   </div>
 </template>
@@ -11,7 +11,7 @@
 import axios from 'axios'
 
 export default {
-  name: 'HelloWorld',
+  name: 'Crypto',
   data: () => ({
     cryptos: [],
     errors: []
@@ -32,18 +32,20 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
+body {
+  background: #f1f1f1;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+div#crypto-container {
+  background: white;
+  width: 70%;
+  margin: 0 auto 4px auto;
+  padding: 1em;
+  box-shadow: 1px 1px 0 lightgrey;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
+span .left {
+  font-weight: bold;
 }
-a {
-  color: #42b983;
+span .right {
+  float: right;
 }
 </style>
